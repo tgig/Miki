@@ -19,4 +19,6 @@ jobs:
         cd gigablog
         git remote add --fetch --track main --no-tags mikigit https://github.com/tgig/Miki.git
         git read-tree --prefix=content/ -u mikigit/main
-
+        git add .
+        git commit -am "Updated content from Miki"
+        git push
