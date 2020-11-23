@@ -11,9 +11,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
           repository: 'tgig/gigablog'
-          token: ${{ secrets.GitHub_PAT }}
     - run: |
         date > generated.txt
         git config user.name github-actions
