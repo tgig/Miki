@@ -20,6 +20,7 @@ jobs:
         destination-github-username: 'tgig'
         destination-repository-name: 'gigablog'
         user-email: tgiggy@gmail.com
+        target-branch: main
         commit-message: See ORIGIN_COMMIT
     - name: Test get variable exported by push-to-another-repository
       run: echo $DESTINATION_CLONED_DIRECTORY
