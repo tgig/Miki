@@ -27,6 +27,6 @@ jobs:
       with:
         repository: 'tgig/gigablog'
         branch: 'main'
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.API_TOKEN_GITHUB }}
 
 
