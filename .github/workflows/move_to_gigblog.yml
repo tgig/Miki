@@ -11,12 +11,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
           repository: 'tgig/gigablog'
-    - run: |
+    - name: Make changes
+      run: |
         date > generated.txt
+    - name: Commit files
+      run: |
+        git config --local user.name github-actions
+        git config --local user.email github-actions@github.com
         git add .
         git commit -am "generated"
-        git push
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
