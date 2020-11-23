@@ -5,19 +5,21 @@ on:
     branches: main
 
 jobs:
-  integrate:
+  build:
 
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout gig-a-blog
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+    - name: Pushes to another repository
+      uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-          repository: 'tgig/gigablog'
-    - name: Read in new files
-      run: |
-        git remote add --fetch --track main --no-tags mikigit https://github.com/tgig/Miki.git
-        git read-tree --prefix=content/ -u mikigit/main
-        git add .
-        git commit -am "Updated content from Miki"
-        git push
+        source_file: "MIKI"
+        destination_repo: 'tgig/gigablog'
+        destination_folder: 'content'
+        user_email: tgiggy@gmail.com
+        user_name: 'tgig'
+        commit_message: "Moving files from Miki to Gigablog"
+        destination_branch: main
