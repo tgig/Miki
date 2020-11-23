@@ -11,22 +11,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Pushes to another repository
+      uses: cpina/github-action-push-to-another-repository@master
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-          repository: 'tgig/gigablog'
-    - name: Make changes
-      run: |
-        date > generated.txt
-    - name: Commit files
-      run: |
-        git config --local user.name tgig
-        git config --local user.email tgiggy@gmail.com
-        git add .
-        git commit -am "generated"
-    - name: Push changes
-      uses: ad-m/github-push-action@main
-      with:
-        repository: 'tgig/gigablog'
-        branch: 'main'
-        github_token: ${{ secrets.API_TOKEN_GITHUB }}
-
-
+        source-directory: 'miki/100 Miki'
+        destination-github-username: 'tgig'
+        destination-repository-name: 'gigablog'
+        user-email: tgiggy@gmail.com
+        commit-message: See ORIGIN_COMMIT
+    - name: Test get variable exported by push-to-another-repository
+      run: echo $DESTINATION_CLONED_DIRECTORY
