@@ -1,6 +1,3 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-
 name: Push content to gig-a-blog
 
 on:
@@ -8,15 +5,17 @@ on:
     branches: main
 
 jobs:
-  build:
+  integrate:
 
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout gig-a-blog
+      uses: actions/checkout@v2
+      with:
+          repository: 'tgig/gigablog'
+    - name: Read in new files
       run: |
-        git clone https://github.com/tgig/gigablog.git
-        cd gigablog
         git remote add --fetch --track main --no-tags mikigit https://github.com/tgig/Miki.git
         git read-tree --prefix=content/ -u mikigit/main
         git add .
