@@ -16,6 +16,8 @@ jobs:
           repository: 'tgig/gigablog'
     - name: Read in new files
       run: |
+        git config user.email "git@giggy.com"
+        git config user.name "Github"
         git remote add --fetch --track main --no-tags mikigit https://github.com/tgig/Miki.git
         git read-tree --prefix=content/ -u mikigit/main
         git add .
