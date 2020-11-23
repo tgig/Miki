@@ -12,15 +12,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Pushes to another repository
-      uses: cpina/github-action-push-to-another-repository@master
+      uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source-directory: 'miki/100 Miki'
-        destination-github-username: 'tgig'
-        destination-repository-name: 'gigablog'
-        user-email: tgiggy@gmail.com
-        target-branch: main
-        commit-message: See ORIGIN_COMMIT
-    - name: Test get variable exported by push-to-another-repository
-      run: echo $DESTINATION_CLONED_DIRECTORY
+        source_file: 'miki/100 Miki'
+        destination_repo: 'tgig/gigablog'
+        destination_folder: 'content/miki'
+        user_email: tgiggy@gmail.com
+        user_name: 'tgig'
+        commit_message: "Moving files from Miki to Gigablog"
+        destination_branch: main
