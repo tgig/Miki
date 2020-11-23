@@ -18,7 +18,7 @@ jobs:
       with:
         source_file: "MIKI"
         destination_repo: 'tgig/gigablog'
-        destination_folder: 'content/miki'
+        destination_folder: 'content'
         user_email: tgiggy@gmail.com
         user_name: 'tgig'
         commit_message: "Moving files from Miki to Gigablog"
