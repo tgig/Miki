@@ -23,7 +23,7 @@ jobs:
         git add .
         git commit -am "generated"
     - name: Push changes
-      uses: ad-m/github-push-action@master
+      uses: ad-m/github-push-action@main
       with:
         repository: 'tgig/gigablog'
         branch: 'main'
