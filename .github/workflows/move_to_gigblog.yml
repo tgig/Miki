@@ -18,6 +18,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
+        source_file: "MIKI/ POSTS/"
         destination_repo: 'tgig/gigablog'
         destination_folder: 'content'
         user_email: tgiggy@gmail.com
