@@ -10,23 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-    - name: Checkout source repo
+    - name: Checkout
       uses: actions/checkout@v2
-      with:
-        path: source-repo
     
-    - name: Checkout target repo
-      uses: actions/checkout@v2
+    - name: Push MIKI/POSTS files to Gigablog
+      uses: crykn/copy_folder_to_another_repo_action@v1.0.5
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        repository: tgig/gigablog
-        path: target-repo
-        token: ${{ secrets.API_TOKEN_GITHUB }}
-    
-    - name: Sync the repo
-      id: sync
-      uses: tomasdelvechio/actions-push-repo-to-subdir@v1.2.0
-      with:
-        github-username: 'tgig'
-        target-subdir-name: 'content'
-
+        source_file: "miki/ posts/"
+        destination_repo: 'tgig/gigablog'
+        destination_folder: 'content'
+        user_email: tgiggy@gmail.com
+        user_name: 'tgig'
+        commit_message: "Moving files from MIKI to Gigablog"
+        destination_branch: main
