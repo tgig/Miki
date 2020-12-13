@@ -23,5 +23,5 @@ jobs:
         destination_folder: 'content'
         user_email: tgiggy@gmail.com
         user_name: 'tgig'
-        commit_message: "Moving files from MIKI to Gigablog"
+        commit_msg: "Moving files from MIKI to Gigablog"
         destination_branch: main
