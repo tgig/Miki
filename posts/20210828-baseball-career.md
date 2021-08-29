@@ -1,10 +1,12 @@
-title: Baseball and asymmetry
-desc: This is a story of two different types of careers
-image: 
+title: Baseball and your career
+desc: Are you a contact hitter, or are you a slugger?
+image: 20210828-baseball-dirt.jpg
 date: 2021-08-28
 type: essay
 
-# Baseball and asymmetry
+# How baseball can help you choose a path in life
+
+## Are you a contact hitter, or are you a slugger?
 
 ![[20210828-baseball-dirt.jpg]]
 
