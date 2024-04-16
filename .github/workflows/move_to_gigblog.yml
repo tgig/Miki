@@ -19,8 +19,8 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source_folder: '.'
-        destination_repo: 'tgig/gigablog'
-        destination_folder: 'content'
+        destination_repo: 'tgig/GBlog'
+        destination_folder: 'lib/assets'
         user_email: tgiggy@gmail.com
         user_name: 'tgig'
         commit_msg: "Moving files from MIKI to Gigablog"
