@@ -1,8 +1,7 @@
 name: Push content to gig-a-blog
 
 on:
-  push:
-    branches: main
+  workflow_dispatch:
 
 jobs:
   build:
